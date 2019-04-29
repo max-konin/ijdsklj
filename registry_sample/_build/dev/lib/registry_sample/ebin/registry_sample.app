@@ -1,0 +1,10 @@
+{application,registry_sample,
+             [{applications,[kernel,stdlib,elixir,logger]},
+              {description,"registry_sample"},
+              {modules,['Elixir.RegistrySample',
+                        'Elixir.RegistrySample.Account',
+                        'Elixir.RegistrySample.AccountSupervisor',
+                        'Elixir.RegistrySample.Application']},
+              {registered,[]},
+              {vsn,"0.1.0"},
+              {mod,{'Elixir.RegistrySample.Application',[]}}]}.
