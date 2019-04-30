@@ -28,7 +28,8 @@ defmodule RegistrySample.Account do
   Starts a new account process for a given `account_id`.
   """
   def start_link(account_id) when is_integer(account_id) do
-    GenServer.start_link(__MODULE__, [account_id], name: via_tuple(account_id))
+    state = %__MODULE__{ account_id: account_id }
+    GenServer.start_link(__MODULE__, state, name: via_tuple(account_id))
   end
 
 
@@ -98,7 +99,7 @@ defmodule RegistrySample.Account do
 
     # update the state from the DB in imaginary land. Hardcoded for now.
     updated_state =
-      %__MODULE__{ state | widgets_ordered: 1, name: "Account #{state[:account_id]}" }
+      %__MODULE__{ state | widgets_ordered: 1, name: "Account #{state.account_id}" }
 
     {:noreply, updated_state}
   end
